@@ -4,12 +4,12 @@ Legion Core integration/staging repository
 Legion (LEGN) is an open-source cryptocurrency project. 
 
 ### Coin Specs
-|                             |                |
-|-----------------------------|----------------|
-| Max Supply                  | 11,000,00 LEGN  |
-| Algorithm                   | Quark          |
-| Block Time                  | 90 Seconds     |
-| Mature Time                 | 1 hour         |
+|                             |                   |
+|-----------------------------|-------------------|
+| Max Supply                  | 100,000,000 LEGN  |
+| Algorithm                   | Quark             |
+| Block Time                  | 90 Seconds        |
+| Mature Time                 | 1 hour            |
 | Masternode Collateral       | 100,000 LEGN      |
 
 
