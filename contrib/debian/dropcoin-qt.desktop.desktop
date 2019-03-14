@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Legion
+Comment=Legion P2P Cryptocurrency
+Exec=legion-qt %u
+Terminal=false
+Type=Application
+Icon=legion128
+MimeType=x-scheme-handler/legion;
+Categories=Office;Finance;
+Name[en_US]=legion-qt.desktop

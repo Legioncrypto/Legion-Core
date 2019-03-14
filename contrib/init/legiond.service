@@ -1,0 +1,26 @@
+[Unit]
+Description=Legion's distributed currency daemon
+After=network.target
+
+[Service]
+User=legion
+Group=legion
+
+Type=forking
+PIDFile=/var/lib/legiond/legiond.pid
+
+ExecStart=/usr/bin/legiond -daemon -pid=/var/lib/legiond/legiond.pid \
+          -conf=/etc/legion/legion.conf -datadir=/var/lib/legiond
+
+ExecStop=-/usr/bin/legion-cli -conf=/etc/legion/legion.conf \
+         -datadir=/var/lib/legiond stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

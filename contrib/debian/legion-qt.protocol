@@ -1,0 +1,11 @@
+[Protocol]
+exec=legion-qt '%u'
+protocol=legion
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false
