@@ -126,9 +126,9 @@ UniValue mnsync(const UniValue& params, bool fHelp)
     if (params.size() == 1)
         strMode = params[0].get_str();
 
-    if (fHelp || params.size() != 1 || (strMode != "status" && strMode != "reset")) {
+    if (fHelp || params.size() != 1 || (strMode != "status" && strMode != "reset" && strMode != "next")) {
         throw runtime_error(
-            "mnsync \"status|reset\"\n"
+            "mnsync \"status|reset|next\"\n"
             "\nReturns the sync status or resets sync.\n"
 
             "\nArguments:\n"
@@ -191,6 +191,10 @@ UniValue mnsync(const UniValue& params, bool fHelp)
         masternodeSync.Reset();
         return "success";
     }
+        if (strMode == "next") {
+        masternodeSync.GetNextAsset();
+        return masternodeSync.GetSyncStatus();
+    }
     return "failure";
 }
 
@@ -220,7 +224,6 @@ public:
     UniValue operator()(const CScriptID &scriptID) const {
         UniValue obj(UniValue::VOBJ);
         obj.push_back(Pair("isscript", true));
-        if (mine != ISMINE_NO) {
             CScript subscript;
             pwalletMain->GetCScript(scriptID, subscript);
             std::vector<CTxDestination> addresses;
@@ -235,7 +238,6 @@ public:
             obj.push_back(Pair("addresses", a));
             if (whichType == TX_MULTISIG)
                 obj.push_back(Pair("sigsrequired", nRequired));
-        }
         return obj;
     }
 };
